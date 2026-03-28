@@ -801,7 +801,7 @@ export default function App() {
     patterns.forEach((n, idx) => {
       if (!activePlan.includes(n)) return
       const radius = base * (factors[idx % factors.length] + 2)
-      const rotation = n % 2 === 0 ? Math.PI / 2 : 0
+      const rotation = -Math.PI / 2
       const points = regularPolygonPoints(n, radius, cx, cy, rotation)
       polygonCache.set(n, { points, color: COLORS[idx % COLORS.length] })
 
