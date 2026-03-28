@@ -1,0 +1,223 @@
+
+:root{
+  --bg:#000000;
+  --panel:#101010;
+  --panel2:#161616;
+  --text:#f6f6f6;
+  --muted:#b3b3b3;
+  --line:#2a2a2a;
+  --accent:#ffffff;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+button,select,input,textarea{font:inherit}
+input[type="number"], input[type="text"], textarea, select, input:not([type]){
+  width:100%;
+  background:#090909;
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 12px;
+}
+input[type="range"]{width:100%}
+textarea{min-height:96px;resize:vertical}
+button{
+  background:#fff;
+  color:#000;
+  border:none;
+  border-radius:16px;
+  padding:11px 14px;
+  cursor:pointer;
+  font-weight:600;
+}
+button.secondary{
+  background:#1b1b1b;
+  color:var(--text);
+  border:1px solid var(--line);
+}
+button:disabled{opacity:.5;cursor:not-allowed}
+.app{
+  min-height:100%;
+  display:grid;
+  grid-template-columns: 320px minmax(0,1fr);
+  gap:14px;
+  padding:14px;
+}
+.panel{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:14px;
+}
+.sidebar{overflow:auto}
+.title{font-size:28px;font-weight:700;margin-bottom:8px}
+.sub{color:var(--muted);line-height:1.55;margin-bottom:12px;font-size:14px}
+.stack{display:grid;gap:10px}
+.row{display:grid;gap:8px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{font-size:14px;color:var(--muted)}
+.btnRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mainPanel{
+  min-height:0;
+  display:grid;
+  grid-template-columns: minmax(300px, 430px) minmax(320px, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  gap:12px;
+}
+.canvasWrap{
+  grid-column:1;
+  grid-row:1 / span 3;
+  display:flex;
+  flex-direction:column;
+  padding:12px;
+}
+.canvasTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:8px;
+}
+.canvasTop h2,.sectionHeader h3{margin:0}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#0d0d0d;
+  border:1px solid var(--line);
+  color:var(--muted);
+  font-size:13px;
+}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.sequencePanel{
+  grid-column:2;
+  grid-row:1;
+  padding:10px;
+  overflow:hidden;
+}
+.soundPanel{
+  grid-column:2;
+  grid-row:2 / span 2;
+  padding:10px;
+  overflow:auto;
+}
+.sectionHeader{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.planList{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.compactPlanList{
+  max-height:88px;
+  overflow:auto;
+}
+.planChip{
+  border:1px solid var(--line);
+  background:#0b0b0b;
+  color:var(--text);
+  border-radius:999px;
+  padding:5px 8px;
+  font-size:12px;
+}
+.soundGrid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(210px,1fr));
+  gap:8px;
+}
+.soundCard{
+  background:#090909;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:8px;
+}
+.soundCardHeader{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-bottom:6px;
+}
+.soundDot{width:10px;height:10px;border-radius:999px;display:inline-block}
+.compactRow2{gap:8px}
+.sampleRow{
+  display:grid;
+  gap:4px;
+  margin:6px 0;
+}
+.sampleName{
+  color:var(--muted);
+  font-size:12px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.footerInfo{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  grid-column:1 / span 2;
+}
+.card{
+  background:#090909;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px;
+}
+a.link{
+  color:#9fd1ff;
+  text-decoration:none;
+}
+a.link:hover{text-decoration:underline}
+@media (max-width: 1180px){
+  .app{
+    grid-template-columns:1fr;
+    height:auto;
+    overflow:auto;
+  }
+  .mainPanel{
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+  }
+  .canvasWrap,.sequencePanel,.soundPanel,.footerInfo{
+    grid-column:auto;
+    grid-row:auto;
+  }
+  .soundGrid{grid-template-columns:1fr}
+}
+
+
+.sequencePanel .sectionHeader,
+.soundPanel .sectionHeader{
+  margin-bottom:8px;
+}
+.sequencePanel .small,
+.soundPanel .small{
+  font-size:11px;
+}
+.soundPanel label,
+.sequencePanel label{
+  font-size:12px;
+}
+.soundPanel select,
+.soundPanel input:not([type="range"]){
+  padding:8px 10px;
+  border-radius:12px;
+}
+.soundPanel button,
+.sequencePanel button{
+  padding:9px 10px;
+  border-radius:14px;
+  font-size:13px;
+}
+.soundPanel input[type="file"]{
+  font-size:12px;
+}
